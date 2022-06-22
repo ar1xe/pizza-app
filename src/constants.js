@@ -9,12 +9,14 @@ export const categories = [
 
 export const typePizzaDough = ["тонкое", "традиционное"];
 
+export const typesSort = ["популярности", "цене", "алфавиту"];
+
 export const pizzas = [
   {
     id: 0,
     imageUrl:
       "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-    title: "Пепперони Фреш с перцем",
+    title: "Пепперони с перцем 🌶️",
     types: [0, 1],
     sizes: [26, 30, 40],
     price: 803,
@@ -25,7 +27,7 @@ export const pizzas = [
     id: 1,
     imageUrl:
       "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/2ffc31bb-132c-4c99-b894-53f7107a1441.jpg",
-    title: "Сырная",
+    title: "Сырная 🌱",
     types: [0],
     sizes: [26, 40],
     price: 245,

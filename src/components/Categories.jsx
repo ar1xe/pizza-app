@@ -4,12 +4,13 @@ import { categories } from "../constants";
 
 const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState(0);
-  
+
   return (
     <div className="categories">
       <ul>
         {categories.map((value, i) => (
           <li
+            key={i}
             onClick={() => setSelectedCategory(i)}
             className={selectedCategory === i ? "active" : ""}
           >

@@ -7,14 +7,6 @@ const PizzaCard = ({ title, price, img, sizes, types }) => {
   const [size, setSize] = useState(0);
   const [type, setType] = useState(0);
 
-  // const changeType = (type) => {
-  //   setType(type);
-  // };
-
-  // const changeSize = (size) => {
-  //   setSize(size);
-  // };
-
   const addPizza = () => {
     setCount(count + 1);
   };
@@ -27,6 +19,7 @@ const PizzaCard = ({ title, price, img, sizes, types }) => {
           <ul>
             {types.map((typePizza) => (
               <li
+                key={typePizza}
                 onClick={() => setType(typePizza)}
                 className={type === typePizza ? "active" : ""}
               >
@@ -37,6 +30,7 @@ const PizzaCard = ({ title, price, img, sizes, types }) => {
           <ul>
             {sizes.map((sizePizza, index) => (
               <li
+                key={index}
                 onClick={() => setSize(index)}
                 className={size === index ? "active" : ""}
               >

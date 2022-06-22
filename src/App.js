@@ -26,6 +26,7 @@ function App() {
                   img={item.imageUrl}
                   sizes={item.sizes}
                   types={item.types}
+                  key={item.id}
                 />
               ))}
               {/* <PizzaCard title="Мексиканская" price={450} /> */}
