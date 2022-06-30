@@ -1,0 +1,30 @@
+.wrapper {
+  height: 60vh;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    h1 {
+      color: #ffdf8c;
+    }
+    span {
+      font-size: 70px;
+    }
+  }
+  .button__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    button {
+      background-color: orange;
+      border-radius: 30px;
+      padding: 10px 20px;
+      min-width: 100px;
+      text-align: center;
+      cursor: pointer;
+
+      border: 1px solid transparent;
+    }
+  }
+}

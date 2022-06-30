@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { typePizzaDough } from "../constants";
+import { typePizzaDough } from '../../constants'
 
 const PizzaCard = ({ title, price, img, sizes, types }) => {
   const [count, setCount] = useState(0);
@@ -11,7 +11,7 @@ const PizzaCard = ({ title, price, img, sizes, types }) => {
     setCount(count + 1);
   };
   return (
-    <div>
+    <div className="pizza-block-wrapper">
       <div className="pizza-block">
         <img className="pizza-block__image" src={img} alt="Pizza" />
         <h4 className="pizza-block__title">{title}</h4>
