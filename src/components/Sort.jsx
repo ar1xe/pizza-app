@@ -2,15 +2,15 @@ import React from "react";
 import { useState } from "react";
 import { typesSort } from "../constants";
 
-const Sort = () => {
+const Sort = ({ value, onChangeSort }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [sort, setSort] = useState(0);
+  
 
   const onClickSortItem = (i) => {
-    setSort(i);
+    onChangeSort(i);
     setIsVisible(false);
   };
-  const sortName = typesSort[sort];
+  const sortName = typesSort[value];
 
   return (
     <div>
@@ -38,7 +38,7 @@ const Sort = () => {
                 <li
                   key={i}
                   onClick={() => onClickSortItem(i)}
-                  className={sort === i ? "active" : ""}
+                  className={value === i ? "active" : ""}
                 >
                   {item}
                 </li>

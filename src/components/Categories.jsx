@@ -1,20 +1,19 @@
 import React from "react";
-import { useState } from "react";
 import { categories } from "../constants";
 
-const Categories = () => {
-  const [selectedCategory, setSelectedCategory] = useState(0);
+const Categories = ({ value, onChangeCategory }) => {
+  // const [selectedCategory, setSelectedCategory] = useState(0);
 
   return (
     <div className="categories">
       <ul>
-        {categories.map((value, i) => (
+        {categories.map((category, i) => (
           <li
             key={i}
-            onClick={() => setSelectedCategory(i)}
-            className={selectedCategory === i ? "active" : ""}
+            onClick={() => onChangeCategory(i)}
+            className={value === i ? "active" : ""}
           >
-            {value}
+            {category}
           </li>
         ))}
       </ul>

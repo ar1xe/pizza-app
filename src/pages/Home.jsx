@@ -8,24 +8,27 @@ import { pizzaDB } from '../constants';
 const Home = () => {
   const [items, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [categoriesId, setCategoriesId] = useState(0);
+  const [sortsId, setSortsId] = useState(0);
+  
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
-      const response = await fetch(pizzaDB);
+      const response = await fetch(pizzaDB + "?category=" + categoriesId);
       const json = await response.json();
       setItem(json);
       setIsLoading(false);
     };
     fetchData().catch(console.error);
     window.scrollTo(0, 0);
-  }, []);
+  }, [categoriesId, sortsId]);
 
     return (
         <>
         <div className="container">
             <div className="content__top">
-              <Categories />
-              <Sort />
+              <Categories value={categoriesId} onChangeCategory={(i) => setCategoriesId(i)}/>
+              <Sort value={sortsId} onChangeSort={(i) => setSortsId(i)} />
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
