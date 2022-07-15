@@ -2,8 +2,7 @@ import React from "react";
 import { categories } from "../constants";
 
 const Categories = ({ value, onChangeCategory }) => {
-  // const [selectedCategory, setSelectedCategory] = useState(0);
-
+  
   return (
     <div className="categories">
       <ul>

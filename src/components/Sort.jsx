@@ -4,13 +4,12 @@ import { typesSort } from "../constants";
 
 const Sort = ({ value, onChangeSort }) => {
   const [isVisible, setIsVisible] = useState(false);
-  
 
   const onClickSortItem = (i) => {
     onChangeSort(i);
     setIsVisible(false);
   };
-  const sortName = typesSort[value];
+  // const sortName = typesSort[value].name;
 
   return (
     <div>
@@ -29,7 +28,7 @@ const Sort = ({ value, onChangeSort }) => {
             />
           </svg>
           <b>Сортировка по:</b>
-          <span onClick={() => setIsVisible(!isVisible)}>{sortName}</span>
+          <span onClick={() => setIsVisible(!isVisible)}>{value.name}</span>
         </div>
         {isVisible && (
           <div className="sort__popup">
@@ -37,10 +36,10 @@ const Sort = ({ value, onChangeSort }) => {
               {typesSort.map((item, i) => (
                 <li
                   key={i}
-                  onClick={() => onClickSortItem(i)}
-                  className={value === i ? "active" : ""}
+                  onClick={() => onClickSortItem(item)}
+                  className={value.sortProp === item.sortProp ? "active" : ""}
                 >
-                  {item}
+                  {item.name}
                 </li>
               ))}
             </ul>
