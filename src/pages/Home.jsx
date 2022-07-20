@@ -5,7 +5,7 @@ import { PizzaCardSkeleton } from "../components/PizzaCard/PizzaCardSkeleton";
 import PizzaCard from "../components/PizzaCard";
 import { pizzaDB } from "../constants";
 
-const Home = () => {
+const Home = ({ searchValue }) => {
   const [items, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoriesId, setCategoriesId] = useState(0);
@@ -19,9 +19,10 @@ const Home = () => {
     const sortBy = sortsId.sortProp.replace("-", "");
     const order = sortsId.sortProp.includes("-") ? "asc" : "desc";
     const categoryFilter = categoriesId > 0 ? `category=${categoriesId}` : "";
+    const search = searchValue ? `&search=${searchValue}` : '';
     const fetchData = async () => {
       const response = await fetch(
-        `${pizzaDB}${categoryFilter}&sortBy=${sortBy}&order=${order}`
+        `${pizzaDB}${categoryFilter}&sortBy=${sortBy}&order=${order}${search}`
       );
       const json = await response.json();
       setItem(json);
@@ -29,7 +30,7 @@ const Home = () => {
     };
     fetchData().catch(console.error);
     window.scrollTo(0, 0);
-  }, [categoriesId, sortsId]);
+  }, [categoriesId, sortsId, searchValue]);
 
   return (
     <>

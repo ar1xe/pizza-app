@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  // left: -100px;
+}
+
+.input {
+  border: 1px solid rgba($color: #f38303, $alpha: 0.5);
+  width: 400px;
+  padding: 20px 40px;
+  border-radius: 10px;
+  height: 35px;
+  font-size: 15px;
+  transition: all 0.15s ease-in-out;
+  &:focus {
+    border: 1px solid rgba($color: #f38303, $alpha: 1);
+    // width: 450px;
+  }
+}
+
+.icon {
+  opacity: 0.5;
+  fill: #f38303;
+  position: absolute;
+  left: 3px;
+  cursor: pointer;
+  transition: all 1s;
+  &:hover {
+    transform: rotate(360deg);
+  }
+}
+
+.close {
+  opacity: 0.7;
+  fill: #f38303;
+  position: absolute;
+  right: 10px;
+  bottom: 12px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all 1s;
+  &:hover {
+    transform: rotate(90deg);
+    opacity: 1;
+  }
+}
