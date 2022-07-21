@@ -18,4 +18,5 @@ export const typesSort = [
   { name: "алфавиту (ASC)", sortProp: "-title" },
 ];
 
-export const pizzaDB = "https://62b35713a36f3a973d20832b.mockapi.io/items?";
+export const pizzaDB =
+  "https://62b35713a36f3a973d20832b.mockapi.io/items?&limit=8&";

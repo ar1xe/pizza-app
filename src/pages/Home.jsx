@@ -4,16 +4,18 @@ import Sort from "../components/Sort";
 import { PizzaCardSkeleton } from "../components/PizzaCard/PizzaCardSkeleton";
 import PizzaCard from "../components/PizzaCard";
 import { pizzaDB } from "../constants";
+import Pagination from "components/Pagination";
 
 const Home = ({ searchValue }) => {
   const [items, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoriesId, setCategoriesId] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [sortsId, setSortsId] = useState({
     name: "популярности",
     sortProp: "rating",
   });
-
+  
   useEffect(() => {
     setIsLoading(true);
     const sortBy = sortsId.sortProp.replace("-", "");
@@ -22,7 +24,7 @@ const Home = ({ searchValue }) => {
     const search = searchValue ? `&search=${searchValue}` : '';
     const fetchData = async () => {
       const response = await fetch(
-        `${pizzaDB}${categoryFilter}&sortBy=${sortBy}&order=${order}${search}`
+        `${pizzaDB}${categoryFilter}&page=${currentPage}&sortBy=${sortBy}&order=${order}${search}`
       );
       const json = await response.json();
       setItem(json);
@@ -30,7 +32,7 @@ const Home = ({ searchValue }) => {
     };
     fetchData().catch(console.error);
     window.scrollTo(0, 0);
-  }, [categoriesId, sortsId, searchValue]);
+  }, [categoriesId, sortsId, searchValue, currentPage]);
 
   return (
     <>
@@ -59,6 +61,7 @@ const Home = ({ searchValue }) => {
                 />
               ))}
         </div>
+        <Pagination onChangePage = {numPage => setCurrentPage(numPage)}/>
       </div>
     </>
   );
