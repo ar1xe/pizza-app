@@ -2,9 +2,13 @@ import SearchCompass from './SearchCompass';
 import React from 'react';
 import styles from './Search.module.scss'
 import CloseIcon from './CloseIcon';
+import { useContext } from 'react';
+import { AppContext } from 'App';
 
-const Search = ({ searchValue, setSearchValue }) => {
+const Search = () => {
     
+    const {searchValue, setSearchValue} = useContext(AppContext)
+
     return (
         <div className={styles.wrapper}>
             <SearchCompass />

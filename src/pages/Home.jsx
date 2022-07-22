@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import { PizzaCardSkeleton } from "../components/PizzaCard/PizzaCardSkeleton";
 import PizzaCard from "../components/PizzaCard";
 import { pizzaDB } from "../constants";
 import Pagination from "components/Pagination";
+import { AppContext } from "App";
 
-const Home = ({ searchValue }) => {
+const Home = () => {
+  const {searchValue} = useContext(AppContext)
   const [items, setItem] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [categoriesId, setCategoriesId] = useState(0);
